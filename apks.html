@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#050505">
+    <meta name="description" content="FOXYKING APKs">
+
+    <title>FOXYKING - APKs</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* APK PAGE */
+
+        .page {
+            width: min(1000px, 92%);
+            margin: auto;
+            padding: 35px 0 70px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 10px 15px;
+
+            color: #fff;
+            text-decoration: none;
+
+            border: 1px solid rgba(255, 0, 0, .25);
+            border-radius: 9px;
+
+            background: rgba(255, 0, 0, .04);
+
+            font-size: 12px;
+            font-weight: bold;
+
+            transition: .2s;
+        }
+
+        .back-button:hover {
+            border-color: #ff0000;
+            background: rgba(255, 0, 0, .1);
+            box-shadow: 0 0 15px rgba(255, 0, 0, .15);
+        }
+
+        .page-title {
+            text-align: center;
+            padding: 55px 0 30px;
+        }
+
+        .page-title h1 {
+            font-size: clamp(38px, 9vw, 65px);
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(255, 0, 0, .25);
+        }
+
+        .page-title p {
+            margin-top: 10px;
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* SEARCH */
+
+        .search-box {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .search-box input {
+            width: 100%;
+
+            padding: 16px 18px;
+
+            border: 1px solid rgba(255, 0, 0, .2);
+            border-radius: 12px;
+
+            outline: none;
+
+            background: #0a0a0a;
+            color: #fff;
+
+            font-size: 14px;
+
+            transition: .2s;
+        }
+
+        .search-box input:focus {
+            border-color: #ff0000;
+
+            box-shadow:
+                0 0 15px rgba(255, 0, 0, .12);
+        }
+
+        .search-box input::placeholder {
+            color: #555;
+        }
+
+        /* APK GRID */
+
+        #apkList {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .apk-card {
+            position: relative;
+
+            padding: 20px;
+
+            border: 1px solid rgba(255, 255, 255, .07);
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 0, 0, .06),
+                    #0a0a0a
+                );
+
+            transition: .25s;
+        }
+
+        .apk-card:hover {
+            transform: translateY(-4px);
+
+            border-color: rgba(255, 0, 0, .5);
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, .4),
+                0 0 20px rgba(255, 0, 0, .08);
+        }
+
+        .apk-top {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .apk-icon {
+            width: 52px;
+            height: 52px;
+
+            flex-shrink: 0;
+
+            object-fit: cover;
+
+            border-radius: 12px;
+
+            background: #111;
+
+            border: 1px solid rgba(255, 0, 0, .25);
+        }
+
+        .apk-name {
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .apk-version {
+            margin-top: 4px;
+            color: #666;
+            font-size: 10px;
+        }
+
+        .apk-description {
+            margin: 15px 0;
+
+            color: #777;
+
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .download-button {
+            display: block;
+
+            width: 100%;
+
+            padding: 11px;
+
+            text-align: center;
+
+            color: #fff;
+            text-decoration: none;
+
+            border: 1px solid #ff0000;
+            border-radius: 8px;
+
+            background: rgba(255, 0, 0, .07);
+
+            font-size: 11px;
+            font-weight: bold;
+
+            transition: .2s;
+        }
+
+        .download-button:hover {
+            background: #ff0000;
+
+            box-shadow:
+                0 0 18px rgba(255, 0, 0, .35);
+        }
+
+        /* STATUS */
+
+        .page-status {
+            padding: 35px 10px;
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: 12px;
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+
+            padding: 50px 20px;
+
+            text-align: center;
+
+            border: 1px solid rgba(255, 0, 0, .15);
+            border-radius: 14px;
+
+            color: #666;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 650px) {
+
+            #apkList {
+                grid-template-columns: 1fr;
+            }
+
+            .page {
+                width: 90%;
+            }
+
+            .page-title {
+                padding-top: 45px;
+            }
+
+            .page-title h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="red-glow glow-one"></div>
+    <div class="red-glow glow-two"></div>
+
+
+    <!-- HEADER -->
+
+    <header class="site-header">
+
+        <a href="../index.html" class="header-brand">
+
+            <img
+                src="../logo.png"
+                alt="FOXYKING"
+                class="header-logo"
+            >
+
+            <strong>FOXYKING</strong>
+
+        </a>
+
+        <div class="online-status">
+            <span class="status-dot"></span>
+            ONLINE
+        </div>
+
+    </header>
+
+
+    <!-- PAGE -->
+
+    <main class="page">
+
+        <a
+            href="../index.html"
+            class="back-button"
+        >
+            ← BACK
+        </a>
+
+
+        <section class="page-title">
+
+            <h1>APKs</h1>
+
+            <p>
+                FOXYKING APK collection
+            </p>
+
+        </section>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                type="search"
+                id="apkSearch"
+                placeholder="Search APKs..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- APK LIST -->
+
+        <div id="apkList">
+
+            <div class="page-status">
+                Loading APKs...
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <img
+            src="../logo.png"
+            alt="FOXYKING"
+        >
+
+        <h2>FOXYKING</h2>
+
+        <div class="footer-line"></div>
+
+        <small>
+            © <span id="currentYear"></span> FOXYKING
+        </small>
+
+    </footer>
+
+
+    <script>
+
+        const apkList = document.getElementById("apkList");
+        const searchInput = document.getElementById("apkSearch");
+        const currentYear = document.getElementById("currentYear");
+
+        let allAPKs = [];
+
+
+        /* YEAR */
+
+        currentYear.textContent =
+            new Date().getFullYear();
+
+
+        /* LOAD JSON */
+
+        async function loadAPKs() {
+
+            apkList.innerHTML = `
+                <div class="page-status">
+                    Loading APKs...
+                </div>
+            `;
+
+            try {
+
+                const response =
+                    await fetch("../data.json", {
+                        cache: "no-store"
+                    });
+
+
+                if (!response.ok) {
+                    throw new Error(
+                        "Failed to load data.json"
+                    );
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                if (!Array.isArray(data.apks)) {
+                    throw new Error(
+                        "APKs array not found"
+                    );
+                }
+
+
+                allAPKs = data.apks;
+
+                renderAPKs(allAPKs);
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                apkList.innerHTML = `
+                    <div class="no-results">
+                        <strong>
+                            APKs unavailable
+                        </strong>
+
+                        <p style="margin-top:8px;">
+                            Please check data.json.
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+
+        /* RENDER */
+
+        function renderAPKs(apks) {
+
+            apkList.innerHTML = "";
+
+
+            if (!apks.length) {
+
+                apkList.innerHTML = `
+                    <div class="no-results">
+                        No APKs available.
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            apks.forEach(apk => {
+
+                const card =
+                    document.createElement("div");
+
+                card.className = "apk-card";
+
+
+                card.innerHTML = `
+
+                    <div class="apk-top">
+
+                        <img
+                            class="apk-icon"
+                            src="${escapeHTML(
+                                apk.icon || "../logo.png"
+                            )}"
+                            alt=""
+                            onerror="this.src='../logo.png'"
+                        >
+
+                        <div>
+
+                            <div class="apk-name">
+                                ${escapeHTML(
+                                    apk.name || "Unnamed APK"
+                                )}
+                            </div>
+
+                            <div class="apk-version">
+                                ${escapeHTML(
+                                    apk.version || ""
+                                )}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="apk-description">
+                        ${escapeHTML(
+                            apk.description || ""
+                        )}
+                    </div>
+
+
+                    <a
+                        class="download-button"
+                        href="${escapeHTML(
+                            apk.url || "#"
+                        )}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        DOWNLOAD
+                    </a>
+
+                `;
+
+
+                apkList.appendChild(card);
+
+            });
+        }
+
+
+        /* SEARCH */
+
+        searchInput.addEventListener(
+            "input",
+            () => {
+
+                const query =
+                    searchInput.value
+                        .trim()
+                        .toLowerCase();
+
+
+                const filtered =
+                    allAPKs.filter(apk => {
+
+                        const name =
+                            String(
+                                apk.name || ""
+                            ).toLowerCase();
+
+                        const version =
+                            String(
+                                apk.version || ""
+                            ).toLowerCase();
+
+                        const description =
+                            String(
+                                apk.description || ""
+                            ).toLowerCase();
+
+
+                        return (
+                            name.includes(query) ||
+                            version.includes(query) ||
+                            description.includes(query)
+                        );
+
+                    });
+
+
+                if (!filtered.length) {
+
+                    apkList.innerHTML = `
+                        <div class="no-results">
+                            No APK found for
+                            "<strong>${escapeHTML(
+                                query
+                            )}</strong>"
+                        </div>
+                    `;
+
+                    return;
+                }
+
+
+                renderAPKs(filtered);
+
+            }
+        );
+
+
+        /* BASIC HTML ESCAPE */
+
+        function escapeHTML(value) {
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
+        /* START */
+
+        loadAPKs();
+
+    </script>
+
+</body>
+</html>

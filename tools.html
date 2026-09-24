@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#050505">
+    <meta name="description" content="FOXYKING">
+
+    <title>FOXYKING - Coming Soon</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        .coming-page {
+            min-height: calc(100vh - 72px);
+
+            width: min(900px, 92%);
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 40px 0;
+        }
+
+        .coming-box {
+            width: 100%;
+            max-width: 650px;
+
+            padding: 55px 25px;
+
+            border: 1px solid rgba(255, 0, 0, .2);
+            border-radius: 22px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255, 0, 0, .08),
+                    #080808 60%
+                );
+
+            box-shadow:
+                0 0 40px rgba(255, 0, 0, .08);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-box::before {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            left: -100%;
+
+            width: 100%;
+            height: 1px;
+
+            background: #ff0000;
+
+            box-shadow: 0 0 15px #ff0000;
+
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .coming-logo {
+            width: 110px;
+            height: 110px;
+
+            object-fit: contain;
+
+            border-radius: 50%;
+
+            filter:
+                drop-shadow(
+                    0 0 15px
+                    rgba(255, 0, 0, .7)
+                );
+
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .coming-title {
+            margin-top: 30px;
+
+            font-size: clamp(35px, 8vw, 65px);
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
+
+            color: #fff;
+
+            text-shadow:
+                0 0 15px rgba(255, 0, 0, .3);
+        }
+
+        .coming-title span {
+            color: #ff0000;
+
+            text-shadow:
+                0 0 15px #ff0000,
+                0 0 35px rgba(255, 0, 0, .4);
+        }
+
+        .coming-text {
+            margin-top: 18px;
+
+            color: #777;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        .dots {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-top: 28px;
+        }
+
+        .dots span {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #ff0000;
+
+            box-shadow: 0 0 10px #ff0000;
+
+            animation: dot 1.2s infinite;
+        }
+
+        .dots span:nth-child(2) {
+            animation-delay: .2s;
+        }
+
+        .dots span:nth-child(3) {
+            animation-delay: .4s;
+        }
+
+        @keyframes dot {
+            0%, 100% {
+                opacity: .25;
+                transform: scale(.7);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .back-home {
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding: 12px 25px;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            border: 1px solid #ff0000;
+            border-radius: 9px;
+
+            background: rgba(255, 0, 0, .06);
+
+            font-size: 11px;
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            transition: .25s;
+        }
+
+        .back-home:hover {
+            background: #ff0000;
+
+            box-shadow:
+                0 0 20px rgba(255, 0, 0, .4);
+
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="red-glow glow-one"></div>
+    <div class="red-glow glow-two"></div>
+
+
+    <!-- HEADER -->
+
+    <header class="site-header">
+
+        <a href="../index.html" class="header-brand">
+
+            <img
+                src="../logo.png"
+                alt="FOXYKING"
+                class="header-logo"
+            >
+
+            <strong>FOXYKING</strong>
+
+        </a>
+
+        <div class="online-status">
+            <span class="status-dot"></span>
+            ONLINE
+        </div>
+
+    </header>
+
+
+    <!-- COMING SOON -->
+
+    <main class="coming-page">
+
+        <section class="coming-box">
+
+            <img
+                src="../logo.png"
+                alt="FOXYKING"
+                class="coming-logo"
+            >
+
+            <h1 class="coming-title">
+                MORE FEATURES
+                <span>COMING SOON</span>
+            </h1>
+
+            <p class="coming-text">
+                FOXYKING is preparing more features.
+                <br>
+                Stay tuned for upcoming updates.
+            </p>
+
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <a
+                href="../index.html"
+                class="back-home"
+            >
+                ← BACK TO FOXYKING
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <img
+            src="../logo.png"
+            alt="FOXYKING"
+        >
+
+        <h2>FOXYKING</h2>
+
+        <div class="footer-line"></div>
+
+        <small>
+            © <span id="year"></span> FOXYKING
+        </small>
+
+    </footer>
+
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
