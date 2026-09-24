@@ -14,7 +14,7 @@
       "version": "v1.0",
       "description": "Example application.",
       "icon": "../logo.png",
-      "url": "https://example.com/download.apk"
+      "url":"herf:localconfig (1).json"
     },
     {
       "name": "Another APK",
