@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#050505">
+    <meta name="description" content="FOXYKING">
+
+    <title>FOXYKING</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background"></div>
+    <div class="red-glow glow-one"></div>
+    <div class="red-glow glow-two"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+
+        <a href="index.html" class="header-brand">
+
+            <img
+                src="logo.png"
+                alt="FOXYKING"
+                class="header-logo"
+            >
+
+            <strong>FOXYKING</strong>
+
+        </a>
+
+        <div class="online-status">
+            <span class="status-dot"></span>
+            ONLINE
+        </div>
+
+    </header>
+
+
+    <!-- Main -->
+    <main class="home">
+
+        <!-- Hero -->
+        <section class="hero">
+
+            <div class="logo-ring">
+
+                <img
+                    src="logo.png"
+                    alt="FOXYKING"
+                    class="main-logo"
+                >
+
+            </div>
+
+            <h1>FOXYKING</h1>
+
+            <p>
+                Welcome to the official FOXYKING website.
+            </p>
+
+        </section>
+
+
+        <!-- Navigation -->
+        <section class="navigation-section">
+
+            <div class="section-heading">
+                <span>MENU</span>
+                <h2>FOXYKING</h2>
+            </div>
+
+            <div class="main-navigation">
+
+                <a href="pages/apks.html" class="navigation-card">
+                    <div class="card-number">01</div>
+
+                    <div class="card-icon">APK</div>
+
+                    <div class="card-content">
+                        <h3>APKs</h3>
+                        <p>Applications and downloads</p>
+                    </div>
+
+                    <div class="card-arrow">→</div>
+                </a>
+
+
+                <a href="pages/scripts.html" class="navigation-card">
+                    <div class="card-number">02</div>
+
+                    <div class="card-icon">JS</div>
+
+                    <div class="card-content">
+                        <h3>Scripts</h3>
+                        <p>Scripts and files</p>
+                    </div>
+
+                    <div class="card-arrow">→</div>
+                </a>
+
+
+                <a href="pages/about.html" class="navigation-card">
+                    <div class="card-number">03</div>
+
+                    <div class="card-icon">FK</div>
+
+                    <div class="card-content">
+                        <h3>About Us</h3>
+                        <p>About FOXYKING</p>
+                    </div>
+
+                    <div class="card-arrow">→</div>
+                </a>
+
+
+                <a href="pages/tools.html" class="navigation-card">
+                    <div class="card-number">04</div>
+
+                    <div class="card-icon">⚙</div>
+
+                    <div class="card-content">
+                        <h3>Tools</h3>
+                        <p>Useful tools</p>
+                    </div>
+
+                    <div class="card-arrow">→</div>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Channel Links -->
+        <section class="channels-section">
+
+            <div class="section-heading">
+                <span>CONNECT</span>
+                <h2>Channel Links</h2>
+            </div>
+
+            <div
+                id="channelLinks"
+                class="channel-links"
+            >
+
+                <div class="loading-channel">
+                    <span class="loader"></span>
+                    Loading...
+                </div>
+
+            </div>
+
+            <div
+                id="channelError"
+                class="channel-error"
+                hidden
+            >
+                <strong>Channels unavailable</strong>
+
+                <p>
+                    Please try again later.
+                </p>
+
+                <button
+                    type="button"
+                    id="retryChannels"
+                >
+                    RETRY
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <img
+            src="logo.png"
+            alt="FOXYKING"
+        >
+
+        <h2>FOXYKING</h2>
+
+        <div class="footer-line"></div>
+
+        <small>
+            © <span id="currentYear"></span> FOXYKING
+        </small>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "channels": [
+    {
+      "name": "YouTube",
+      "description": "FOXYKING Official Channel",
+      "url": "https://youtube.com/",
+      "icon": "▶"
+    }
+  ],
+
+  "apks": [
+    {
+      "name": "Example APK",
+      "version": "v1.0",
+      "description": "Example application.",
+      "icon": "../logo.png",
+      "url": "https://example.com/download.apk"
+    },
+    {
+      "name": "Another APK",
+      "version": "v2.0",
+      "description": "Another application.",
+      "icon": "../logo.png",
+      "url": "https://example.com/app.apk"
+    }
+  ]
+}
